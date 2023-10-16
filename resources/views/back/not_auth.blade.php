@@ -16,50 +16,50 @@
 		<title> Dashfox - Laravel Admin & Dashboard Template </title>
 
 		<!-- Favicon -->
-		<link rel="icon" href="{{ url('back') }}/assets/img/brand/favicon.png" type="image/x-icon"/>
+		<link rel="icon" href="{{ asset('back') }}/assets/img/brand/favicon.png" type="image/x-icon"/>
 
 		<!-- Bootstrap css -->
-		<link href="{{ url('back') }}/assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" />
+		<link href="{{ asset('back') }}/assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" />
 
 		<!-- Icons css -->
-		<link href="{{ url('back') }}/assets/plugins/icons/icons.css" rel="stylesheet">
+		<link href="{{ asset('back') }}/assets/plugins/icons/icons.css" rel="stylesheet">
 
 		<!--  Right-sidemenu css -->
-		<link href="{{ url('back') }}/assets/plugins/sidebar/sidebar.css" rel="stylesheet">
+		<link href="{{ asset('back') }}/assets/plugins/sidebar/sidebar.css" rel="stylesheet">
 
 		<!--  Left-Sidebar css -->
-		<link rel="stylesheet" href="{{ url('back') }}/assets/css/sidemenu.css">
+		<link rel="stylesheet" href="{{ asset('back') }}/assets/css/sidemenu.css">
 
 		<!--- Dashboard-2 css-->
-		<link href="{{ url('back') }}/assets/css/style.css" rel="stylesheet">
-		<link href="{{ url('back') }}/assets/css/style-dark.css" rel="stylesheet"> 
+		<link href="{{ asset('back') }}/assets/css/style.css" rel="stylesheet">
+		<link href="{{ asset('back') }}/assets/css/style-dark.css" rel="stylesheet"> 
 
 		<!--- Color css-->
-		<link id="theme" href="{{ url('back') }}/assets/css/colors/color.css" rel="stylesheet">
+		<link id="theme" href="{{ asset('back') }}/assets/css/colors/color.css" rel="stylesheet">
 
 		 
 
 		<!--- Internal Fontawesome css-->
-		<link href="{{ url('back') }}/assets/plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
+		<link href="{{ asset('back') }}/assets/plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
 
 		<!---Ionicons css-->
-		<link href="{{ url('back') }}/assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet">
+		<link href="{{ asset('back') }}/assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet">
 
 		<!---Internal Typicons css-->
-		<link href="{{ url('back') }}/assets/plugins/typicons.font/typicons.css" rel="stylesheet">
+		<link href="{{ asset('back') }}/assets/plugins/typicons.font/typicons.css" rel="stylesheet">
 
 		<!---Internal Feather css-->
-		<link href="{{ url('back') }}/assets/plugins/feather/feather.css" rel="stylesheet">
+		<link href="{{ asset('back') }}/assets/plugins/feather/feather.css" rel="stylesheet">
 
 		<!---Internal Falg-icons css-->
-		<link href="{{ url('back') }}/assets/plugins/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+		<link href="{{ asset('back') }}/assets/plugins/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
 
 
 		<!---Skinmodes css-->
-		<link href="{{ url('back') }}/assets/css/skin-modes.css" rel="stylesheet" />
+		<link href="{{ asset('back') }}/assets/css/skin-modes.css" rel="stylesheet" />
 
 		<!--- Animations css-->
-		<link href="{{ url('back') }}/assets/css/animate.css" rel="stylesheet">
+		<link href="{{ asset('back') }}/assets/css/animate.css" rel="stylesheet">
 
 	</head>
 
@@ -67,7 +67,7 @@
 
 		<!-- Loader -->
 		<div id="global-loader">
-			<img src="{{ url('back') }}/assets/img/loader-2.svg" class="loader-img" alt="Loader">
+			<img src="{{ asset('back') }}/assets/img/loader-2.svg" class="loader-img" alt="Loader">
 		</div>
 		<!-- /Loader -->
 
@@ -81,7 +81,7 @@
 			<h1 class="">401</h1>
 			<h2> Sorry, an error has occured, Not Authorizad To Login this Page!.</h2>
 			<h6>please!! Enter Yoyr Email And Your Password To Login</h6>
-			<a class="btn btn-primary" href="{{ url('dashboard') }}/login">Back to Login Page</a>
+			<a class="btn btn-primary" href="{{ asset('dashboard') }}/login">Back to Login Page</a>
 		</div>
 		<!-- /Main-error-wrapper -->
 
@@ -91,30 +91,30 @@
 		<!-- /main-signin-wrapper -->
 
         <!-- JQuery min js -->
-<script src="{{ url('back') }}/assets/plugins/jquery/jquery.min.js"></script>
+<script src="{{ asset('back') }}/assets/plugins/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap4 js-->
-<script src="{{ url('back') }}/assets/plugins/bootstrap/popper.min.js"></script>
-<script src="{{ url('back') }}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{ asset('back') }}/assets/plugins/bootstrap/popper.min.js"></script>
+<script src="{{ asset('back') }}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Ionicons js -->
-<script src="{{ url('back') }}/assets/plugins/ionicons/ionicons.js"></script>
+<script src="{{ asset('back') }}/assets/plugins/ionicons/ionicons.js"></script>
 
 <!-- Moment js -->
-<script src="{{ url('back') }}/assets/plugins/moment/moment.js"></script>
+<script src="{{ asset('back') }}/assets/plugins/moment/moment.js"></script>
 
 <!-- eva-icons js -->
-<script src="{{ url('back') }}/assets/plugins/eva-icons/eva-icons.min.js"></script>
+<script src="{{ asset('back') }}/assets/plugins/eva-icons/eva-icons.min.js"></script>
   
 <!-- Rating js-->
-<script src="{{ url('back') }}/assets/plugins/rating/jquery.rating-stars.js"></script>
-<script src="{{ url('back') }}/assets/plugins/rating/jquery.barrating.js"></script>
+<script src="{{ asset('back') }}/assets/plugins/rating/jquery.rating-stars.js"></script>
+<script src="{{ asset('back') }}/assets/plugins/rating/jquery.barrating.js"></script>
 
  
 
 
 <!-- custom js -->
-<script src="{{ url('back') }}/assets/js/custom.js"></script>
+<script src="{{ asset('back') }}/assets/js/custom.js"></script>
         
 	</body>
 

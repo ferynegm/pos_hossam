@@ -79,7 +79,7 @@
 				<div class="wd-md-50p login d-none d-md-block page-signin-style p-5 text-white" >
 					<div class="my-auto authentication-pages">
 						<div>
-							<img src="{{ url('back/images/settings/logo.png') }}" class=" m-0 mb-4" alt="logo">
+							<img src="{{ asset('back/images/settings/logo.png') }}" class=" m-0 mb-4" alt="logo">
 							<p class="mb-5 text-center"> منصة للتعلم عبر الإنترنت من خلال أفضل وسائل وطرق التعلُم الحديثة</p>
 						</div>
 					</div>
@@ -108,7 +108,7 @@
 								</ul>
 							</div>
 						@endif
-						<form action="{{ url('dashboard/login_post') }}" method="post">
+						<form action="{{ asset('dashboard/login_post') }}" method="post">
                             @csrf
 							<div class="form-group">
 								<label>البريد الإلكتروني</label>
@@ -124,7 +124,7 @@
 					<div class="main-signin-footer mt-3 mg-t-5">
 						<br />
 						<p class="text-center">
-							<a href="{{ url('/register') }}" style="color: red;">تسجيل عضوية جديدة</a>
+							<a href="{{ asset('/register') }}" style="color: red;">تسجيل عضوية جديدة</a>
 						</p>
 						{{-- <p>
 							<a href="{{ asset('public/back') }}/#">هل نسيت كلمة السر ؟</a>

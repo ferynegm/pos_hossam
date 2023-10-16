@@ -1,121 +1,31 @@
-@if(auth()->user()->role_relation->admins_delete == 1)
-    <script>
-        $(document).on("click" , "table .delete" ,function(e){
-            e.preventDefault();
-            var loop_id = $(this).attr("loop_id");
+<script>
+    $(document).on("click" , "#datatable tr .delete" ,function(e){
+        e.preventDefault();
+        var row_id = $(this).attr("row_id");
 
 
-        alertify.confirm('{{ trans('app.Warning') }}', '{{ trans('app.Are You Sure Of Delete') }}',
-            function(){
-                $.ajax({
-                    url: "{{ url('admin/admins/destroy') }}"+'/'+loop_id,
-                    type: "get",
-                    success: function(){
-                        $('#datatable').DataTable().ajax.reload( null, false );
+    alertify.confirm('تحذير !!', 'هل أنت متأكد من حذف هذا المستخدم ؟',
+        function(){
+            $.ajax({
+                url: "{{ url('admin/admins/destroy') }}"+'/'+row_id,
+                type: "get",
+                success: function(){
+                    $('#datatable').DataTable().ajax.reload( null, false );
 
-                        alertify.set('notifier','position', 'top-center');
-                        alertify.set('notifier','delay', 4);
-                        alertify.error("@lang('app.Completed Delete Successfully')");
-                    },
-                    error: function(){
-
-                    }
-                }); // end ajax
-
-            }, // function success
-            function(){
-                alertify.set('notifier','position', 'bottom-right');
-                alertify.set('notifier','delay', 4);
-                alertify.error("@lang('app.canceled')");
-            }); // function error
-        });
-
-
-
-        ///////////////////////////////// Delete Selected /////////////////////////////////
-        $(document).on("click" , "#delete_selected a" ,function(e){
-            e.preventDefault();
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            alertify.confirm('<span class="delete_selected_item_style_title_head">{{ trans('app.Warning') }}</span>', '<span class="delete_selected_item_style">{{ trans('app.Are You Sure Of Delete This Elements') }}</span>',
-                function(){
-                    $.ajax({
-                        url: "{{ url('admin/admins/destroy_selected') }}",
-                        type: "get",
-                        data: $('table form').serialize(),
-                        success: function(){
-                            $('#datatable').DataTable().ajax.reload( null, false );
-
-                            alertify.set('notifier','position', 'top-center');
-                            alertify.set('notifier','delay', 4);
-                            alertify.error("@lang('app.Completed Delete Successfully')");
-
-                            $("#datatable #checkAll").prop('checked', false);
-                        },
-                        error: function(){
-
-                        }
-                    }); // end ajax
-
-                }, // function success
-                function(){
-                    alertify.set('notifier','position', 'bottom-right');
+                    alertify.set('notifier','position', 'top-center');
                     alertify.set('notifier','delay', 4);
-                    alertify.error("@lang('app.canceled')");
-            }); // function error
-        });
+                    alertify.error("تم الحذف بنجاح");
+                },
+                error: function(){
 
-        ///////////////////////////////// Delete Selected By Button Delete /////////////////////////////////
-        $("#datatable").keydown(function (e) {
-            if (e.keyCode == 46) {
-                e.preventDefault();
-
-                $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
-            });
+            }); // end ajax
 
-                alertify.confirm('<span class="delete_selected_item_style_title_head">{{ trans('app.Warning') }}</span>', '<span class="delete_selected_item_style">{{ trans('app.Are You Sure Of Delete This Elements') }}</span>',
-                    function(){
-                        $.ajax({
-                            url: "{{ url('admin/admins/destroy_selected') }}",
-                            type: "get",
-                            data: $('table form').serialize(),
-                            success: function(){
-                                $('#datatable').DataTable().ajax.reload( null, false );
-
-                                alertify.set('notifier','position', 'top-center');
-                                alertify.set('notifier','delay', 4);
-                                alertify.error("@lang('app.Completed Delete Successfully')");
-
-                                $("#datatable #checkAll").prop('checked', false);
-                            },
-                            error: function(){
-
-                            }
-                        }); // end ajax
-
-                    }, // function success
-                    function(){
-                        alertify.set('notifier','position', 'bottom-right');
-                        alertify.set('notifier','delay', 4);
-                        alertify.error("@lang('app.canceled')");
-                }); // function error
-            }
-        });
-    </script>
-@else
-    <script>
-        $(document).on("click" , "table .delete" ,function(e){
+        }, // function success
+        function(){
             alertify.set('notifier','position', 'bottom-right');
             alertify.set('notifier','delay', 4);
-            alertify.error("لاتمتلك الصلاحيات لإتمام عملية الحذف");
-        });
-    </script>
-@endif
+            alertify.error("تم إلغاء الحذف");
+        }); // function error
+    });
+</script>

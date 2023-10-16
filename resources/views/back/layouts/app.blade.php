@@ -1,44 +1,50 @@
 <!doctype html>
-@if (app()->getLocale() == 'en')
-	<html lang="en">
-@elseif (app()->getLocale() == 'ar')
-	<html lang="ar" dir="rtl">
-@endif
+<html lang="ar" dir="rtl">
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
-    <title>@yield('title')</title>
+    <title>
+		الجامع ستور | 
+		@yield('title')
+	</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
-    <link rel="shortcut icon" type="image/x-icon" href="{{ url('front') }}/assets/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front') }}/assets/images/favicon.ico">
 	<script src="{{ asset('back/assets/js/ckeditor/ckeditor.js') }}"></script>
 
 	{{----------------------------------- all styles --------------------------------}}
 	{{----------------------------------- ----------- --------------------------------}}
 	@yield('header')
-	@if (app()->getLocale() == 'en')
-		{{-- bootstrap --}}
-		<link href="{{ asset('back/assets/css/bootstrap.min.css') }}" id="bootstrap-style" type="text/css" rel="stylesheet"/>
-		{{-- alertify --}}
-		<link href="{{ asset('back/assets/css/alertify.min.css') }}" type="text/css" rel="stylesheet"/>
-	@elseif (app()->getLocale() == 'ar')
-		{{-- bootstrap --}}
-        <link href="{{ asset('back/assets/css/bootstrap-rtl.min.css') }}" id="bootstrap-style" type="text/css" rel="stylesheet"/>
-		{{-- alertify --}}
-		<link href="{{ asset('back/assets/css/alertify.rtl.min.css') }}" type="text/css" rel="stylesheet"/>
-	@endif
+	
+	{{-- dataTables --}}
+	<link href="{{ asset('back') }}/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back') }}/assets/libs/datatables.net-buttons-bs4/c/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('back') }}/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" /> 
+
+	{{-- select2 --}}
+	<link href="{{ asset('back') }}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+	
+	{{-- semantic --}}
+	<link href="{{ asset('back') }}/assets/css/semantic.min.css" rel="stylesheet" type="text/css" />
+	
+	{{-- file upload --}}
+    <link href="{{ asset('back') }}/assets/file-upload-with-preview.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('back') }}/assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+	
+	{{-- spotlight --}}
+    <link href="{{ asset('back') }}/assets/css/spotlight.min.css" rel="stylesheet" type="text/css" />
+	
+	{{-- bootstrap --}}
+	<link href="{{ asset('back/assets/css/bootstrap-rtl.min.css') }}" id="bootstrap-style" type="text/css" rel="stylesheet"/>
+	
+	{{-- alertify --}}
+	<link href="{{ asset('back/assets/css/alertify.rtl.min.css') }}" type="text/css" rel="stylesheet"/>
 	
 	{{-- icons --}}
 	<link href="{{ asset('back/assets/css/icons.min.css') }}" type="text/css" rel="stylesheet"/>
 
-	@if (app()->getLocale() == 'en')
-		<link href="{{ asset('back/assets/css/cust.css') }}" rel="stylesheet"/>
-		<link href="{{ asset('back/assets/css/app.min.css') }}" id="app-style" type="text/css" rel="stylesheet"/>
-		{{-- <link href="{{ asset('back/assets/css/app-dark.min.css') }}" id="app-style" type="text/css" /> --}}
-	@elseif (app()->getLocale() == 'ar')
-		<link href="{{ asset('back/assets/css/cust-ar.css') }}" rel="stylesheet"/>
-		<link href="{{ asset('back/assets/css/app-rtl.min.css') }}" id="app-style" type="text/css" rel="stylesheet"/>
-	@endif
+	<link href="{{ asset('back/assets/css/cust-ar.css') }}" rel="stylesheet"/>
+	<link href="{{ asset('back/assets/css/app-rtl.min.css') }}" id="app-style" type="text/css" rel="stylesheet"/>
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,8 +61,8 @@
 	@include('back.layouts.app_style')
 </head>
 
-<body data-sidebar="colored" data-keep-enlarged="true" class="vertical-collpsed">
-    {{-- <body data-sidebar="dark" > --}}
+<body data-sidebar="dark" data-keep-enlarged="true" class="vertical-collpsed">
+    {{-- <body data-sidebar="colored" > --}}
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
     {{-- <div id="layout-wrapper" style="background: rgb(242,242,242);background: linear-gradient(184deg, rgba(242,242,242,1) 0%, rgb(231 232 235 / 80%) 100%);"> --}}
 
@@ -86,6 +92,58 @@
 	{{-- <script src="{{ asset('back/assets/js/pages/dashboard.init.js') }}"></script> --}}
 	<!-- alertify -->
 	<script src="{{ asset('back/assets/js/alertify.min.js') }}"></script>
+	<!-- select2 -->
+	<script src="{{ asset('back') }}/assets/libs/select2/js/select2.min.js"></script>
+    <!-- spotlight -->
+	<script src="{{ asset('back') }}/assets/js/spotlight.bundle.js"></script>
+	<script src="{{ asset('back') }}/assets/js/spotlight.min.js"></script>
+	{{-- nice scroll --}}
+	<script src="{{ asset('back') }}/assets/js/jquery.nicescroll.min.js"></script>
+	
+	
+	{{-- Datatable --}}
+	<script src="{{ asset('back') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="{{ asset('back') }}/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.f3.d"></script>
+	<!-- Buttons examples -->
+	<script src="{{ asset('back') }}/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.14e"></script>
+	<script src="{{ asset('back') }}/assets/libs/datatables.net-buttons-bs4/j/buttons.bootstrap4.min"></script>
+	<script src="{{ asset('back') }}/assets/libs/datatables.net-buttons/js/buttons.html5.min.153.dela"></script>
+	<script src="{{ asset('back') }}/assets/libs/datatables.net-buttons/js/buttons.print.min.154.dela"></script>
+	<script src="{{ asset('back') }}/assets/libs/datatables.net-buttons/js/buttons.colVis.min.155.del"></script>
+    <!-- file-upload -->
+    <script src="{{ asset('back') }}/assets/file-upload-with-preview.min.js"></script>
+    <script src="{{ asset('back') }}/assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+
+
+	{{-- start ajax token --}}
+		<script>
+			$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+			});
+		</script>
+	{{-- end ajax token --}}
+
+	{{-- start reset form data when close offcanavas --}}
+	<script>
+		$(document).ready(function() {
+			var offcanvas = $('#offcanvasWithBothOptions');
+			
+			$(document).on('click', function(event) {
+				if (!$(event.target).closest(offcanvas).length) {
+					$("#offcanvasWithBothOptions form")[0].reset();
+					$("#offcanvasWithBothOptions form bold[class=text-danger]").css('display', 'none');
+				}
+			});
+		});
+	</script>
+	{{-- end reset form data when close offcanavas --}}
+
+
+
+
 	@yield('footer')
 	<!-- App js -->
 	<script src="{{ asset('back/assets/js/app.js') }}"></script>

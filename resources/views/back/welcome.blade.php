@@ -5,7 +5,7 @@
 @endsection
 
 @section('header')
-	<link href="{{ url('back') }}/assets/css/semantic.min.css" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('back') }}/assets/css/semantic.min.css" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('footer')

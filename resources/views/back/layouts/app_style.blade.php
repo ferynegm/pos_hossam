@@ -74,6 +74,11 @@
 		width: 270px;
 		text-align: center;
 	}
+
+	.dt_btn{
+		margin: 1px 2px;
+	}
+
 </style>
 @if (app()->getLocale() == 'en')
 	<style>

@@ -97,9 +97,13 @@ class AdminController extends Controller
 
     public function edit($id)
     {
-        $find = Admin::where('name' , $id)->first();
-        $permissions = RolesPermissions::all();
-        return view('back.admins.edit', compact('find', 'permissions'));
+        $find = DB::table('users')
+                ->join('admins', 'users.id', '=', 'admins.name')
+                ->where('users.id', $id)
+                ->select('users.*', 'admins.address', 'admins.address', 'admins.nat_id', 'admins.image', 'admins.birth_date', 'admins.note', 'admins.gender', 'admins.status')
+                ->first();
+
+        return response()->json($find);
     }
 
     public function update(Request $request, $id)
@@ -299,45 +303,19 @@ class AdminController extends Controller
             }
         })
         ->addColumn('action', function($res){
-            if($res->id == 1){
-                $buttons = '<a class="btn btn-outline-success btn-sm edit bt_modal" title="Edit" act="'.url('admin/admins/edit/'.$res->name).'"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                    <i class="fas fa-pencil-alt"></i>
-                </a>';
-                
-                $buttons .= '<a class="btn btn-outline-info btn-sm show bt_modal" act="'.url('admin/admins/show/'.$res->name).'"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                    <i class="fas fa-eye"></i>
-                </a>';
+            $buttons = '<a class="btn btn-success waves-effect waves-light btn-rounded btn-sm dt_btn edit" title="تعديل" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" row_id="'.$res->name.'">
+                <i class="mdi mdi-pencil font-size-18"></i>
+            </a>';
+            
+            $buttons .= '<a class="btn btn-danger waves-effect waves-light btn-rounded btn-sm dt_btn delete" title="حذف" row_id="'.$res->name.'">
+                <i class="mdi mdi-trash-can font-size-18"></i>
+            </a>';
 
-                $buttons .= '<a class="btn btn-outline-dark btn-sm bt_modal" style="margin-right: 6px;" act="'.url('admin/admins/change_password/'.$res->name).'"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                    <i class="fas fa-key"></i>
-                </a>';
-
-                // $buttons .= '<a class="btn btn-outline-danger btn-sm delete" loop_id="'.$res->name.'">
-                //     <i class="fas fa-trash-alt"></i>
-                // </a>';
-                
-                // $buttons .= '<a class="btn btn-outline-dark btn-sm bt_modal" act="'.url('admin/admins/change_password/'.$res->name).'"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                //     <i class="fas fa-key"></i>
-                // </a>';
-                return $buttons;
-            }else{
-                $buttons = '<a class="btn btn-outline-success btn-sm edit bt_modal" title="Edit" act="'.url('admin/admins/edit/'.$res->name).'"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                    <i class="fas fa-pencil-alt"></i>
-                </a>';
-                
-                $buttons .= '<a class="btn btn-outline-info btn-sm show bt_modal" act="'.url('admin/admins/show/'.$res->name).'"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                    <i class="fas fa-eye"></i>
-                </a>';
-    
-                $buttons .= '<a class="btn btn-outline-danger btn-sm delete" loop_id="'.$res->name.'">
-                    <i class="fas fa-trash-alt"></i>
-                </a>';
-                
-                $buttons .= '<a class="btn btn-outline-dark btn-sm bt_modal" act="'.url('admin/admins/change_password/'.$res->name).'"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                    <i class="fas fa-key"></i>
-                </a>';
-                return $buttons;
-            }
+            $buttons .= '<a class="btn btn-dark waves-effect waves-light btn-rounded btn-sm dt_btn change_pass" title="تعديل كلمة السر" row_id="'.$res->name.'">
+                <i class="mdi mdi-key font-size-18"></i>
+            </a>';
+            
+            return $buttons;
         })
         ->rawColumns(['image', 'user', 'contact', 'last_login_time', 'branche', 'gender', 'status', 'action'])
         ->make(true);

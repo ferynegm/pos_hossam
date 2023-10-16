@@ -3,21 +3,21 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box" style="padding: 0px 5px;">
-                <a href="{{ url('admin') }}" class="logo logo-dark">
+                <a href="{{ asset('admin') }}" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ url('back') }}/assets/images/s_logo.png" alt="" height="70" >
+                        <img src="{{ asset('back') }}/assets/images/s_logo.png" alt="" height="70" >
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ url('back') }}/assets/images/l_logo.png" alt="" height="60" >
+                        <img src="{{ asset('back') }}/assets/images/l_logo.png" alt="" height="60" >
                     </span>
                 </a>
 
-                <a href="{{ url('admin') }}" class="logo logo-light">
+                <a href="{{ asset('admin') }}" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ url('back') }}/assets/images/s_logo.png" alt="" height="70" >
+                        <img src="{{ asset('back') }}/assets/images/s_logo.png" alt="" height="70" >
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ url('back') }}/assets/images/l_logo.png" alt="" height="60" >
+                        <img src="{{ asset('back') }}/assets/images/l_logo.png" alt="" height="60" >
                     </span>
                 </a>
             </div>
@@ -155,7 +155,7 @@
 
                                 <div class="col-sm-5">
                                     <div>
-                                        <img src="{{ url('back') }}/assets/images/megamenu-img.png" alt="" class="img-fluid mx-auto d-block">
+                                        <img src="{{ asset('back') }}/assets/images/megamenu-img.png" alt="" class="img-fluid mx-auto d-block">
                                     </div>
                                 </div>
                             </div>
@@ -192,12 +192,12 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
-                        <img src="{{ url('back') }}/assets/images/flags/egypt.png" alt="user-image" class="me-1" height="12"> <span class="align-middle">Arabic</span>
+                        <img src="{{ asset('back') }}/assets/images/flags/egypt.png" alt="user-image" class="me-1" height="12"> <span class="align-middle">Arabic</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="eng">
-                        <img src="{{ url('back') }}/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
+                        <img src="{{ asset('back') }}/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
                     </a>
                     <!-- item-->
                 </div>
@@ -264,7 +264,7 @@
                         </a>
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex">
-                                <img src="{{ url('back') }}/assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                <img src="{{ asset('back') }}/assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1">James Lemire</h6>
                                     <div class="font-size-12 text-muted">
@@ -293,7 +293,7 @@
 
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex">
-                                <img src="{{ url('back') }}/assets/images/users/avatar-4.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                <img src="{{ asset('back') }}/assets/images/users/avatar-4.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                 <div class="flex-grow-1">
                                     <h6 class="mb-1">Salena Layfield</h6>
                                     <div class="font-size-12 text-muted">
@@ -314,8 +314,8 @@
 
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="{{ url('back/images/admins/'.\App\Models\Back\Admin::where('name', auth()->user()->id)->first()->image ) }}" alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ auth()->user()->name }}</span>
+                    {{-- <img class="rounded-circle header-profile-user" src="{{ asset('back/images/admins/'.\App\Models\Back\Admin::where('name', auth()->user()->id)->first()->image ) }}" alt="Header Avatar">
+                    <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ auth()->user()->name }}</span> --}}
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end" style="">
@@ -325,7 +325,7 @@
                     <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Settings</span></a>
                     <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a>
                     <div class="dropdown-divider"></div> --}}
-                    <a class="dropdown-item text-danger" href="{{ url('admin/logout') }}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">تسجيل الخروج</span></a>
+                    <a class="dropdown-item text-danger" href="{{ asset('admin/logout') }}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">تسجيل الخروج</span></a>
                 </div>
             </div>
         </div>
